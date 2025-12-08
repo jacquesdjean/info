@@ -10,26 +10,86 @@ export function Globe() {
     <GlobeWrapper>
       <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <pattern id="dots" width="3" height="3" patternUnits="userSpaceOnUse">
-            <circle cx="1.5" cy="1.5" r="0.7" fill="#1A1A1A" />
-          </pattern>
           <clipPath id="globe-clip">
             <circle cx="50" cy="50" r="48" />
           </clipPath>
         </defs>
 
+        {/* Globe outline */}
         <circle cx="50" cy="50" r="48" stroke="#D1D5DB" strokeWidth="1" fill="none" />
 
+        {/* Grid lines */}
         <ellipse cx="50" cy="50" rx="48" ry="18" stroke="#E5E7EB" strokeWidth="0.5" fill="none" strokeDasharray="2 2" />
         <ellipse cx="50" cy="50" rx="48" ry="36" stroke="#E5E7EB" strokeWidth="0.5" fill="none" strokeDasharray="2 2" />
         <ellipse cx="50" cy="50" rx="20" ry="48" stroke="#E5E7EB" strokeWidth="0.5" fill="none" strokeDasharray="2 2" />
 
+        {/* Stippled continents - Americas focused */}
         <g clipPath="url(#globe-clip)">
-          <path d="M15 28 Q25 18 38 22 Q48 28 45 42 Q38 52 28 50 Q18 45 15 35 Z" fill="url(#dots)" />
-          <path d="M32 58 Q42 54 45 62 Q44 78 36 85 Q28 82 26 72 Q27 62 32 58 Z" fill="url(#dots)" />
-          <path d="M52 22 Q62 18 68 24 Q72 32 68 38 Q60 42 54 38 Q50 30 52 22 Z" fill="url(#dots)" />
-          <path d="M56 44 Q66 40 72 48 Q76 62 70 74 Q62 80 54 74 Q48 62 52 52 Z" fill="url(#dots)" />
-          <path d="M72 20 Q88 16 95 28 Q92 42 82 48 Q72 44 68 34 Q68 24 72 20 Z" fill="url(#dots)" />
+          {/* North America - Canada/Alaska area */}
+          <circle cx="22" cy="22" r="1.2" fill="#6B7280" />
+          <circle cx="26" cy="20" r="1.2" fill="#6B7280" />
+          <circle cx="30" cy="19" r="1.2" fill="#6B7280" />
+          <circle cx="34" cy="20" r="1.2" fill="#6B7280" />
+          <circle cx="38" cy="22" r="1.2" fill="#6B7280" />
+          <circle cx="24" cy="26" r="1.2" fill="#6B7280" />
+          <circle cx="28" cy="25" r="1.2" fill="#6B7280" />
+          <circle cx="32" cy="24" r="1.2" fill="#6B7280" />
+          <circle cx="36" cy="26" r="1.2" fill="#6B7280" />
+
+          {/* North America - USA */}
+          <circle cx="20" cy="30" r="1.2" fill="#6B7280" />
+          <circle cx="24" cy="32" r="1.2" fill="#6B7280" />
+          <circle cx="28" cy="30" r="1.2" fill="#6B7280" />
+          <circle cx="32" cy="29" r="1.2" fill="#6B7280" />
+          <circle cx="36" cy="31" r="1.2" fill="#6B7280" />
+          <circle cx="40" cy="30" r="1.2" fill="#6B7280" />
+          <circle cx="22" cy="35" r="1.2" fill="#6B7280" />
+          <circle cx="26" cy="36" r="1.2" fill="#6B7280" />
+          <circle cx="30" cy="34" r="1.2" fill="#6B7280" />
+          <circle cx="34" cy="35" r="1.2" fill="#6B7280" />
+          <circle cx="38" cy="36" r="1.2" fill="#6B7280" />
+          <circle cx="25" cy="40" r="1.2" fill="#6B7280" />
+          <circle cx="29" cy="39" r="1.2" fill="#6B7280" />
+          <circle cx="33" cy="40" r="1.2" fill="#6B7280" />
+          <circle cx="37" cy="41" r="1.2" fill="#6B7280" />
+
+          {/* Mexico & Central America */}
+          <circle cx="28" cy="44" r="1.2" fill="#6B7280" />
+          <circle cx="32" cy="45" r="1.2" fill="#6B7280" />
+          <circle cx="30" cy="49" r="1.2" fill="#6B7280" />
+          <circle cx="34" cy="50" r="1.2" fill="#6B7280" />
+          <circle cx="32" cy="54" r="1.2" fill="#6B7280" />
+          <circle cx="35" cy="56" r="1.2" fill="#6B7280" />
+
+          {/* South America */}
+          <circle cx="38" cy="60" r="1.2" fill="#6B7280" />
+          <circle cx="42" cy="58" r="1.2" fill="#6B7280" />
+          <circle cx="46" cy="60" r="1.2" fill="#6B7280" />
+          <circle cx="40" cy="64" r="1.2" fill="#6B7280" />
+          <circle cx="44" cy="63" r="1.2" fill="#6B7280" />
+          <circle cx="48" cy="65" r="1.2" fill="#6B7280" />
+          <circle cx="42" cy="68" r="1.2" fill="#6B7280" />
+          <circle cx="46" cy="69" r="1.2" fill="#6B7280" />
+          <circle cx="50" cy="70" r="1.2" fill="#6B7280" />
+          <circle cx="44" cy="73" r="1.2" fill="#6B7280" />
+          <circle cx="48" cy="74" r="1.2" fill="#6B7280" />
+          <circle cx="46" cy="78" r="1.2" fill="#6B7280" />
+          <circle cx="44" cy="82" r="1.2" fill="#6B7280" />
+          <circle cx="42" cy="86" r="1.2" fill="#6B7280" />
+
+          {/* Europe hint (on the right edge) */}
+          <circle cx="72" cy="28" r="1.2" fill="#6B7280" />
+          <circle cx="76" cy="30" r="1.2" fill="#6B7280" />
+          <circle cx="80" cy="32" r="1.2" fill="#6B7280" />
+          <circle cx="74" cy="34" r="1.2" fill="#6B7280" />
+          <circle cx="78" cy="36" r="1.2" fill="#6B7280" />
+
+          {/* Africa hint (on the right edge) */}
+          <circle cx="76" cy="44" r="1.2" fill="#6B7280" />
+          <circle cx="80" cy="46" r="1.2" fill="#6B7280" />
+          <circle cx="78" cy="50" r="1.2" fill="#6B7280" />
+          <circle cx="82" cy="52" r="1.2" fill="#6B7280" />
+          <circle cx="80" cy="56" r="1.2" fill="#6B7280" />
         </g>
       </svg>
     </GlobeWrapper>
