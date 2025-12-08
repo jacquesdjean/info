@@ -55,9 +55,9 @@ export function Home() {
           <LinkText as={Link} to="/writing">Check out my other work!</LinkText>
 
           <LocationBlock>
-            <LocationLine>Based in Austin, Texas</LocationLine>
-            <LocationLine>United States of America</LocationLine>
-            <LocationLine $muted>CDT/CST UTC-6</LocationLine>
+            <LocationLine $bold>Based in Austin, Texas</LocationLine>
+            <LocationLine>United States of America 🇺🇸</LocationLine>
+            <LocationLine $muted>CDT/DST UTC-5</LocationLine>
           </LocationBlock>
 
           <CardFooter>
