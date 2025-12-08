@@ -92,6 +92,7 @@ export const Headline = styled.h2`
   color: #1A202C;
   line-height: 1.3;
   margin-top: 20px;
+  margin-bottom: 0;
 `;
 
 export const LinkText = styled.a`
@@ -99,6 +100,7 @@ export const LinkText = styled.a`
   font-size: 15px;
   color: #1A202C;
   margin-top: 12px;
+  margin-bottom: 0;
   transition: opacity 0.15s ease;
 
   &:hover {
@@ -109,12 +111,13 @@ export const LinkText = styled.a`
 
 export const LocationBlock = styled.div`
   margin-top: 16px;
+  margin-bottom: 24px;
 `;
 
 export const LocationLine = styled.p<{ $muted?: boolean; $bold?: boolean }>`
   font-size: 14px;
   color: ${props => props.$muted ? '#718096' : '#1A202C'};
-  font-weight: ${props => props.$bold ? '700' : '400'};
+  font-weight: ${props => props.$bold ? '600' : '400'};
   margin: 0;
   line-height: 1.6;
 `;
