@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { Globe } from '../components/Globe';
 import {
@@ -52,7 +51,7 @@ export function Home() {
 
           <Headline>Investing in water & energy freedom.</Headline>
 
-          <LinkText as={Link} to="/writing">Check out my other work!</LinkText>
+          <LinkText href="https://freelancerprofilenuxt.mesh.prod.platform.usw2.upwork/freelancers/~01229e152775e587d5" target="_blank" rel="noopener noreferrer">View My Work →</LinkText>
 
           <LocationBlock>
             <LocationLine $bold>Based in Austin, Texas</LocationLine>
@@ -62,7 +61,7 @@ export function Home() {
 
           <CardFooter>
             <PitchLink href="mailto:me@jacquesjean.info">
-              Pitch me on your idea!
+              Pitch me your idea
             </PitchLink>
             <Globe />
           </CardFooter>
