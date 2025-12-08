@@ -17,7 +17,7 @@ export const Card = styled.div`
   background: #FFFFFF;
   border-radius: 16px;
   padding: 24px 28px;
-  max-width: 440px;
+  max-width: 420px;
   width: 100%;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -46,7 +46,7 @@ export const NameBlock = styled.div``;
 
 export const Name = styled.h1`
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   color: #1A202C;
   margin: 0;
 `;
@@ -126,6 +126,7 @@ export const CardFooter = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  margin-top: 20px;
 `;
 
 export const PitchLink = styled.a`
