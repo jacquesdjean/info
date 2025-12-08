@@ -52,7 +52,7 @@ export function Home() {
 
           <Headline>Investing in water & energy freedom.</Headline>
 
-          <LinkText as={Link} to="/blog">Check out my other work!</LinkText>
+          <LinkText as={Link} to="/writing">Check out my other work!</LinkText>
 
           <LocationBlock>
             <LocationLine>Based in Austin, Texas</LocationLine>

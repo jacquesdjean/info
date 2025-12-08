@@ -6,16 +6,20 @@ export const PageWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background-color: #9BB5C1;
+  background-color: #A3C1CD;
+
+  @media (max-width: 480px) {
+    padding: 16px;
+  }
 `;
 
 export const Card = styled.div`
   background: #FFFFFF;
-  border-radius: 24px;
+  border-radius: 16px;
   padding: 32px;
   max-width: 420px;
   width: 100%;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   position: relative;
 `;
 
@@ -44,13 +48,13 @@ export const NameBlock = styled.div``;
 export const Name = styled.h1`
   font-size: 18px;
   font-weight: 600;
-  color: #1A1A1A;
+  color: #1A202C;
   margin: 0;
 `;
 
 export const Tagline = styled.p`
   font-size: 14px;
-  color: #6B7280;
+  color: #718096;
   margin: 0;
   display: flex;
   align-items: center;
@@ -60,7 +64,7 @@ export const Tagline = styled.p`
     content: '';
     width: 8px;
     height: 8px;
-    background: #22C55E;
+    background: #48BB78;
     border-radius: 50%;
     flex-shrink: 0;
   }
@@ -83,9 +87,10 @@ export const BookmarkIcon = styled.button`
 `;
 
 export const Headline = styled.h2`
-  font-size: 28px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
   font-weight: 700;
-  color: #1A1A1A;
+  color: #1A202C;
   line-height: 1.3;
   margin-bottom: 20px;
 `;
@@ -93,10 +98,12 @@ export const Headline = styled.h2`
 export const LinkText = styled.a`
   display: block;
   font-size: 15px;
-  color: #1A1A1A;
+  color: #1A202C;
   margin-bottom: 20px;
+  transition: opacity 0.15s ease;
 
   &:hover {
+    opacity: 0.7;
     text-decoration: underline;
   }
 `;
@@ -107,7 +114,7 @@ export const LocationBlock = styled.div`
 
 export const LocationLine = styled.p<{ $muted?: boolean }>`
   font-size: 14px;
-  color: ${props => props.$muted ? '#9CA3AF' : '#1A1A1A'};
+  color: ${props => props.$muted ? '#718096' : '#1A202C'};
   margin: 0;
   line-height: 1.6;
 `;
@@ -120,10 +127,11 @@ export const CardFooter = styled.div`
 
 export const PitchLink = styled.a`
   font-size: 14px;
-  color: #6B7280;
+  color: #718096;
   font-style: italic;
+  transition: color 0.15s ease;
 
   &:hover {
-    color: #1A1A1A;
+    color: #1A202C;
   }
 `;
