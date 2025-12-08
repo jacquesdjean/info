@@ -1,15 +1,28 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const PostPageWrapper = styled.div`
+export const ArticlePageWrapper = styled.div`
   min-height: 100vh;
-  background-color: #9BB5C1;
+  background-color: #A3C1CD;
   padding: 48px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 `;
 
-export const PostContainer = styled.article`
-  max-width: 640px;
-  margin: 0 auto;
+export const ArticleCard = styled.article`
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 680px;
+  width: 100%;
+  margin-top: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  @media (max-width: 600px) {
+    padding: 24px;
+    margin-top: 0;
+  }
 `;
 
 export const BackLink = styled(Link)`
@@ -17,7 +30,7 @@ export const BackLink = styled(Link)`
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  color: #1A1A1A;
+  color: #1A202C;
   opacity: 0.6;
   margin-bottom: 32px;
   transition: opacity 0.15s ease;
@@ -27,10 +40,11 @@ export const BackLink = styled(Link)`
   }
 `;
 
-export const PostTitle = styled.h1`
+export const ArticleTitle = styled.h1`
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 36px;
   font-weight: 700;
-  color: #1A1A1A;
+  color: #1A202C;
   line-height: 1.2;
   margin-bottom: 16px;
 
@@ -39,18 +53,19 @@ export const PostTitle = styled.h1`
   }
 `;
 
-export const PostMeta = styled.div`
+export const ArticleMeta = styled.div`
   font-size: 14px;
-  color: #4B5563;
+  color: #718096;
   margin-bottom: 32px;
 `;
 
-export const PostContent = styled.div`
+export const ArticleContent = styled.div`
   font-size: 17px;
   line-height: 1.75;
-  color: #1A1A1A;
+  color: #1A202C;
 
   h2 {
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: 24px;
     font-weight: 700;
     margin: 32px 0 16px;
@@ -67,7 +82,7 @@ export const PostContent = styled.div`
   }
 
   a {
-    color: #1A1A1A;
+    color: #1A202C;
     text-decoration: underline;
     text-underline-offset: 2px;
 
@@ -77,11 +92,11 @@ export const PostContent = styled.div`
   }
 
   blockquote {
-    border-left: 3px solid #1A1A1A;
+    border-left: 3px solid #1A202C;
     padding-left: 20px;
     margin: 24px 0;
     font-style: italic;
-    color: #4B5563;
+    color: #718096;
   }
 
   ul, ol {
@@ -101,7 +116,7 @@ export const PostContent = styled.div`
   }
 
   pre {
-    background: #1A1A1A;
+    background: #1A202C;
     color: #F3F4F6;
     padding: 20px;
     border-radius: 8px;
@@ -116,7 +131,7 @@ export const PostContent = styled.div`
   }
 `;
 
-export const PostFooter = styled.div`
+export const ArticleFooter = styled.div`
   margin-top: 48px;
   padding-top: 24px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);

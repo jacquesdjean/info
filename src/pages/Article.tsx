@@ -2,24 +2,24 @@ import { useParams, Navigate } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import posts from '../data/posts.json';
 import {
-  PostPageWrapper,
-  PostContainer,
+  ArticlePageWrapper,
+  ArticleCard,
   BackLink,
-  PostTitle,
-  PostMeta,
-  PostContent,
-  PostFooter,
+  ArticleTitle,
+  ArticleMeta,
+  ArticleContent,
+  ArticleFooter,
   ArrowLeft,
 } from '../components/BlogPostStyles';
 import { HomeLink, HomeIcon } from '../components/BlogStyles';
 import type { Post } from '../types';
 
-export function BlogPost() {
+export function Article() {
   const { slug } = useParams<{ slug: string }>();
   const post = (posts as Post[]).find((p) => p.slug === slug);
 
   if (!post) {
-    return <Navigate to="/blog" replace />;
+    return <Navigate to="/writing" replace />;
   }
 
   const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
@@ -33,30 +33,30 @@ export function BlogPost() {
       <SEO
         title={post.title}
         description={post.excerpt}
-        url={`https://jacquesjean.info/blog/${post.slug}`}
+        url={`https://jacquesjean.info/writing/${post.slug}`}
         type="article"
         publishedTime={post.date}
       />
-      <PostPageWrapper>
-        <PostContainer>
-          <BackLink to="/blog">
+      <ArticlePageWrapper>
+        <ArticleCard>
+          <BackLink to="/writing">
             <ArrowLeft /> All posts
           </BackLink>
 
-          <PostTitle>{post.title}</PostTitle>
-          <PostMeta>
+          <ArticleTitle>{post.title}</ArticleTitle>
+          <ArticleMeta>
             {formattedDate} · {post.readingTime} min read
-          </PostMeta>
+          </ArticleMeta>
 
-          <PostContent dangerouslySetInnerHTML={{ __html: post.content }} />
+          <ArticleContent dangerouslySetInnerHTML={{ __html: post.content }} />
 
-          <PostFooter>
+          <ArticleFooter>
             <HomeLink to="/" aria-label="Home">
               <HomeIcon />
             </HomeLink>
-          </PostFooter>
-        </PostContainer>
-      </PostPageWrapper>
+          </ArticleFooter>
+        </ArticleCard>
+      </ArticlePageWrapper>
     </>
   );
 }

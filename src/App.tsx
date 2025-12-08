@@ -1,20 +1,30 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { GlobalStyles } from './components/GlobalStyles';
+import { GlobalStyles, PageTransition } from './components/GlobalStyles';
 import { Home } from './pages/Home';
-import { Blog } from './pages/Blog';
-import { BlogPost } from './pages/BlogPost';
+import { Writing } from './pages/Writing';
+import { Article } from './pages/Article';
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <PageTransition key={location.pathname}>
+      <Routes location={location}>
+        <Route path="/" element={<Home />} />
+        <Route path="/writing" element={<Writing />} />
+        <Route path="/writing/:slug" element={<Article />} />
+      </Routes>
+    </PageTransition>
+  );
+}
 
 function App() {
   return (
     <HelmetProvider>
       <GlobalStyles />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-        </Routes>
+        <AnimatedRoutes />
       </BrowserRouter>
     </HelmetProvider>
   );

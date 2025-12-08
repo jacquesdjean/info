@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const BlogPageWrapper = styled.div`
+export const WritingPageWrapper = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 48px 24px;
-  background-color: #9BB5C1;
+  background-color: #A3C1CD;
 `;
 
-export const PostList = styled.nav`
+export const ArticleList = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,16 +19,18 @@ export const PostList = styled.nav`
   margin-bottom: 48px;
 `;
 
-export const PostLink = styled(Link)`
+export const ArticleLink = styled(Link)`
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 24px;
   font-weight: 700;
-  color: #1A1A1A;
+  color: #2D3748;
   text-align: center;
   line-height: 1.3;
-  transition: opacity 0.15s ease;
+  transition: opacity 0.15s ease, transform 0.15s ease;
 
   &:hover {
     opacity: 0.7;
+    transform: translateY(-1px);
   }
 
   @media (max-width: 600px) {
@@ -37,7 +39,7 @@ export const PostLink = styled(Link)`
 `;
 
 export const HomeLink = styled(Link)`
-  color: #1A1A1A;
+  color: #2D3748;
   opacity: 0.6;
   transition: opacity 0.15s ease;
   display: flex;
