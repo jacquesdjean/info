@@ -9,7 +9,6 @@ import {
   NameBlock,
   Name,
   Tagline,
-  TaglineEmphasis,
   BookmarkIcon,
   Headline,
   LinkText,
@@ -40,7 +39,7 @@ export function Home() {
               <NameBlock>
                 <Name>Jacques Jean</Name>
                 <Tagline>
-                  Building <TaglineEmphasis>Stronger</TaglineEmphasis> Businesses
+                  Building Stronger Businesses
                 </Tagline>
               </NameBlock>
             </ProfileSection>
@@ -51,7 +50,7 @@ export function Home() {
 
           <Headline>Investing in water & energy freedom.</Headline>
 
-          <LinkText href="https://freelancerprofilenuxt.mesh.prod.platform.usw2.upwork/freelancers/~01229e152775e587d5" target="_blank" rel="noopener noreferrer">Check out my other work!</LinkText>
+          <LinkText href="https://www.upwork.com/freelancers/~01229e152775e587d5" target="_blank" rel="noopener noreferrer">Check out my other work!</LinkText>
 
           <LocationBlock>
             <LocationLine $bold>Based in Austin, Texas</LocationLine>

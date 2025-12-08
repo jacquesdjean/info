@@ -55,6 +55,7 @@ export const Name = styled.h1`
 export const Tagline = styled.p`
   font-size: 14px;
   color: #718096;
+  font-weight: 700;
   margin: 0;
   display: flex;
   align-items: center;
@@ -68,10 +69,6 @@ export const Tagline = styled.p`
     border-radius: 50%;
     flex-shrink: 0;
   }
-`;
-
-export const TaglineEmphasis = styled.span`
-  font-style: italic;
 `;
 
 export const BookmarkIcon = styled(Link)`
