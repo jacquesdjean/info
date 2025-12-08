@@ -4,6 +4,7 @@ import { GlobalStyles, PageTransition } from './components/GlobalStyles';
 import { Home } from './pages/Home';
 import { Writing } from './pages/Writing';
 import { Article } from './pages/Article';
+import { Library } from './pages/Library';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -12,6 +13,7 @@ function AnimatedRoutes() {
     <PageTransition key={location.pathname}>
       <Routes location={location}>
         <Route path="/" element={<Home />} />
+        <Route path="/library" element={<Library />} />
         <Route path="/writing" element={<Writing />} />
         <Route path="/writing/:slug" element={<Article />} />
       </Routes>

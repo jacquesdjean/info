@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const PageWrapper = styled.div`
   min-height: 100vh;
@@ -6,7 +7,7 @@ export const PageWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background-color: #A3C1CD;
+  background-color: #B8CDD4;
 
   @media (max-width: 480px) {
     padding: 16px;
@@ -46,7 +47,7 @@ export const NameBlock = styled.div``;
 
 export const Name = styled.h1`
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   color: #1A202C;
   margin: 0;
 `;
@@ -73,12 +74,13 @@ export const TaglineEmphasis = styled.span`
   font-style: italic;
 `;
 
-export const BookmarkIcon = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
+export const BookmarkIcon = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 4px;
   color: #9CA3AF;
+  transition: color 0.15s ease;
 
   &:hover {
     color: #6B7280;
@@ -86,9 +88,9 @@ export const BookmarkIcon = styled.button`
 `;
 
 export const Headline = styled.h2`
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 21px;
-  font-weight: 700;
+  font-weight: 600;
   color: #1A202C;
   line-height: 1.3;
   margin-top: 20px;

@@ -8,7 +8,7 @@ export const WritingPageWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 48px 24px;
-  background-color: #A3C1CD;
+  background-color: #B8CDD4;
 `;
 
 export const ArticleList = styled.nav`
@@ -20,9 +20,9 @@ export const ArticleList = styled.nav`
 `;
 
 export const ArticleLink = styled(Link)`
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
   color: #2D3748;
   text-align: center;
   line-height: 1.3;
