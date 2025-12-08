@@ -44,14 +44,14 @@ export function Home() {
                 </Tagline>
               </NameBlock>
             </ProfileSection>
-            <BookmarkIcon aria-label="Bookmark">
+            <BookmarkIcon to="/library" aria-label="Library">
               <BookmarkSVG />
             </BookmarkIcon>
           </CardHeader>
 
           <Headline>Investing in water & energy freedom.</Headline>
 
-          <LinkText href="https://freelancerprofilenuxt.mesh.prod.platform.usw2.upwork/freelancers/~01229e152775e587d5" target="_blank" rel="noopener noreferrer">View My Work →</LinkText>
+          <LinkText href="https://freelancerprofilenuxt.mesh.prod.platform.usw2.upwork/freelancers/~01229e152775e587d5" target="_blank" rel="noopener noreferrer">Check out my other work!</LinkText>
 
           <LocationBlock>
             <LocationLine $bold>Based in Austin, Texas</LocationLine>
@@ -61,7 +61,7 @@ export function Home() {
 
           <CardFooter>
             <PitchLink href="mailto:me@jacquesjean.info">
-              Pitch me your idea
+              Pitch me on your idea!
             </PitchLink>
             <Globe />
           </CardFooter>

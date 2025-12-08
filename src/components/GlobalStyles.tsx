@@ -13,7 +13,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #A3C1CD;
+    background-color: #B8CDD4;
     color: #1A202C;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;

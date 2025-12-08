@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const ArticlePageWrapper = styled.div`
   min-height: 100vh;
-  background-color: #A3C1CD;
+  background-color: #B8CDD4;
   padding: 48px 24px;
   display: flex;
   justify-content: center;
@@ -41,9 +41,9 @@ export const BackLink = styled(Link)`
 `;
 
 export const ArticleTitle = styled.h1`
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 600;
   color: #1A202C;
   line-height: 1.2;
   margin-bottom: 16px;
@@ -65,9 +65,9 @@ export const ArticleContent = styled.div`
   color: #1A202C;
 
   h2 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 600;
     margin: 32px 0 16px;
   }
 
