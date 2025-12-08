@@ -16,10 +16,10 @@ export const PageWrapper = styled.div`
 export const Card = styled.div`
   background: #FFFFFF;
   border-radius: 16px;
-  padding: 32px;
-  max-width: 420px;
+  padding: 24px 28px;
+  max-width: 440px;
   width: 100%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
   position: relative;
 `;
 
@@ -27,7 +27,6 @@ export const CardHeader = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 24px;
 `;
 
 export const ProfileSection = styled.div`
@@ -46,7 +45,7 @@ export const Avatar = styled.img`
 export const NameBlock = styled.div``;
 
 export const Name = styled.h1`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: #1A202C;
   margin: 0;
@@ -88,18 +87,20 @@ export const BookmarkIcon = styled.button`
 
 export const Headline = styled.h2`
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 700;
   color: #1A202C;
   line-height: 1.3;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 0;
 `;
 
 export const LinkText = styled.a`
   display: block;
   font-size: 15px;
   color: #1A202C;
-  margin-bottom: 20px;
+  margin-top: 12px;
+  margin-bottom: 0;
   transition: opacity 0.15s ease;
 
   &:hover {
@@ -109,12 +110,14 @@ export const LinkText = styled.a`
 `;
 
 export const LocationBlock = styled.div`
+  margin-top: 16px;
   margin-bottom: 24px;
 `;
 
-export const LocationLine = styled.p<{ $muted?: boolean }>`
+export const LocationLine = styled.p<{ $muted?: boolean; $bold?: boolean }>`
   font-size: 14px;
   color: ${props => props.$muted ? '#718096' : '#1A202C'};
+  font-weight: ${props => props.$bold ? '600' : '400'};
   margin: 0;
   line-height: 1.6;
 `;
@@ -127,11 +130,11 @@ export const CardFooter = styled.div`
 
 export const PitchLink = styled.a`
   font-size: 14px;
-  color: #718096;
+  color: #1A202C;
   font-style: italic;
-  transition: color 0.15s ease;
+  transition: opacity 0.15s ease;
 
   &:hover {
-    color: #1A202C;
+    opacity: 0.7;
   }
 `;
