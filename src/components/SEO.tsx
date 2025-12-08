@@ -1,5 +1,13 @@
 import { Helmet } from 'react-helmet-async';
-import type { SEOProps } from '../types';
+
+interface SEOProps {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+}
 
 const defaults = {
   siteName: 'Jacques Jean',
@@ -15,7 +23,7 @@ export function SEO({
   image,
   url,
   type = 'website',
-  publishedTime,
+  publishedTime
 }: SEOProps) {
   const seo = {
     title: title ? `${title} | ${defaults.siteName}` : defaults.title,
@@ -24,30 +32,45 @@ export function SEO({
     url: url || defaults.url,
   };
 
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jacques Jean",
+    "url": "https://jacquesjean.info",
+    "image": defaults.image,
+    "jobTitle": "Investor & Entrepreneur",
+    "description": "Investing in water & energy freedom",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Austin",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    }
+  };
+
   return (
     <Helmet>
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
 
-      {/* Open Graph */}
       <meta property="og:title" content={seo.title} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:image" content={seo.image} />
       <meta property="og:url" content={seo.url} />
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content={defaults.siteName} />
-      {publishedTime && (
-        <meta property="article:published_time" content={publishedTime} />
-      )}
+      {publishedTime && <meta property="article:published_time" content={publishedTime} />}
 
-      {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
 
-      {/* Canonical */}
       <link rel="canonical" href={seo.url} />
+
+      <script type="application/ld+json">
+        {JSON.stringify(personSchema)}
+      </script>
     </Helmet>
   );
 }
