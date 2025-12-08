@@ -1,60 +1,73 @@
-import styled from 'styled-components';
-import { Hero, SEO, BlogCard } from '../components';
-import posts from '../data/posts.json';
-import type { Post } from '../types';
+import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
+import { Globe } from '../components/Globe';
+import {
+  PageWrapper,
+  Card,
+  CardHeader,
+  ProfileSection,
+  Avatar,
+  NameBlock,
+  Name,
+  Tagline,
+  TaglineEmphasis,
+  BookmarkIcon,
+  Headline,
+  LinkText,
+  LocationBlock,
+  LocationLine,
+  CardFooter,
+  PitchLink,
+} from '../components/HomeStyles';
 
-const RecentPostsSection = styled.section`
-  margin-top: 4rem;
-  padding-top: 3rem;
-  border-top: 1px solid #eaeaea;
-
-  @media (max-width: 768px) {
-    margin-top: 2rem;
-    padding-top: 2rem;
-  }
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  color: #1a1a1a;
-
-  @media (max-width: 768px) {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-  }
-`;
-
-const ViewAllLink = styled.a`
-  display: inline-block;
-  margin-top: 1.5rem;
-  font-size: 1rem;
-  color: #0d7377;
-  font-weight: 500;
-
-  &:hover {
-    color: #14919b;
-  }
-`;
+const BookmarkSVG = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+  </svg>
+);
 
 export function Home() {
-  const recentPosts = (posts as Post[]).slice(0, 3);
-
   return (
     <>
       <SEO />
-      <Hero />
+      <PageWrapper>
+        <Card>
+          <CardHeader>
+            <ProfileSection>
+              <Avatar
+                src="https://framerusercontent.com/images/JApsSortn8lDy0Tsl66p6wcrM8.jpeg"
+                alt="Jacques Jean"
+              />
+              <NameBlock>
+                <Name>Jacques Jean</Name>
+                <Tagline>
+                  Building <TaglineEmphasis>Stronger</TaglineEmphasis> Businesses
+                </Tagline>
+              </NameBlock>
+            </ProfileSection>
+            <BookmarkIcon aria-label="Bookmark">
+              <BookmarkSVG />
+            </BookmarkIcon>
+          </CardHeader>
 
-      {recentPosts.length > 0 && (
-        <RecentPostsSection>
-          <SectionTitle>Recent Writing</SectionTitle>
-          {recentPosts.map((post) => (
-            <BlogCard key={post.slug} post={post} />
-          ))}
-          <ViewAllLink href="/blog">View all posts &rarr;</ViewAllLink>
-        </RecentPostsSection>
-      )}
+          <Headline>Investing in water & energy freedom.</Headline>
+
+          <LinkText as={Link} to="/blog">Check out my other work!</LinkText>
+
+          <LocationBlock>
+            <LocationLine>Based in Austin, Texas</LocationLine>
+            <LocationLine>United States of America</LocationLine>
+            <LocationLine $muted>CDT/CST UTC-6</LocationLine>
+          </LocationBlock>
+
+          <CardFooter>
+            <PitchLink href="mailto:me@jacquesjean.info">
+              Pitch me on your idea!
+            </PitchLink>
+            <Globe />
+          </CardFooter>
+        </Card>
+      </PageWrapper>
     </>
   );
 }
