@@ -1,3 +1,4 @@
+import { useState, useCallback } from 'react';
 import { SEO } from '../components/SEO';
 import { Globe } from '../components/Globe';
 import {
@@ -15,8 +16,14 @@ import {
   LocationLine,
   CardFooter,
   PitchLink,
-  VenturesSection,
-  VenturesLabel,
+  VenturesTrigger,
+  VenturesTriggerLabel,
+  VenturesTriggerArrow,
+  PopupOverlay,
+  PopupCard,
+  PopupHeader,
+  PopupTitle,
+  PopupClose,
   VentureLink,
   VentureName,
   VentureDesc,
@@ -32,10 +39,14 @@ const ventures = [
   { name: 'MilkRoute.ai', url: 'https://milkroute.ai', desc: 'Channel sales methodology for B2B founders' },
   { name: 'BlueSignal', url: 'https://bluesignal.xyz', desc: 'Water quality monitoring hardware' },
   { name: 'WaterQuality.Trading', url: 'https://waterquality.trading', desc: 'Nutrient credit marketplace' },
-  { name: 'Aquaria.world', url: 'https://aquaria.world', desc: 'Dealer-installer network for water systems' },
 ];
 
 export function Home() {
+  const [showVentures, setShowVentures] = useState(false);
+
+  const openVentures = useCallback(() => setShowVentures(true), []);
+  const closeVentures = useCallback(() => setShowVentures(false), []);
+
   return (
     <>
       <SEO />
@@ -61,15 +72,10 @@ export function Home() {
 
           <Headline>Building systems in energy, water, and sales intelligence.</Headline>
 
-          <VenturesSection>
-            <VenturesLabel>Current Ventures</VenturesLabel>
-            {ventures.map((v) => (
-              <VentureLink key={v.name} href={v.url} target="_blank" rel="noopener noreferrer">
-                <VentureName>{v.name}</VentureName>
-                <VentureDesc>{v.desc}</VentureDesc>
-              </VentureLink>
-            ))}
-          </VenturesSection>
+          <VenturesTrigger onClick={openVentures}>
+            <VenturesTriggerLabel>Current Ventures</VenturesTriggerLabel>
+            <VenturesTriggerArrow>&#8599;</VenturesTriggerArrow>
+          </VenturesTrigger>
 
           <LocationBlock>
             <LocationLine $bold>Based in Austin, Texas</LocationLine>
@@ -85,6 +91,23 @@ export function Home() {
           </CardFooter>
         </Card>
       </PageWrapper>
+
+      {showVentures && (
+        <PopupOverlay onClick={closeVentures}>
+          <PopupCard onClick={(e) => e.stopPropagation()}>
+            <PopupHeader>
+              <PopupTitle>Current Ventures</PopupTitle>
+              <PopupClose onClick={closeVentures}>&times;</PopupClose>
+            </PopupHeader>
+            {ventures.map((v) => (
+              <VentureLink key={v.name} href={v.url} target="_blank" rel="noopener noreferrer">
+                <VentureName>{v.name}</VentureName>
+                <VentureDesc>{v.desc}</VentureDesc>
+              </VentureLink>
+            ))}
+          </PopupCard>
+        </PopupOverlay>
+      )}
     </>
   );
 }
