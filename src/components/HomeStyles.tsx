@@ -10,12 +10,11 @@ export const PageWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 24px;
+  padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
   background-color: #B8CDD4;
 
   @media (max-width: 480px) {
-    padding: 12px;
-    align-items: flex-start;
-    padding-top: 32px;
+    padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
   }
 `;
 
@@ -30,8 +29,9 @@ export const Card = styled.div`
   font-family: ${fontStack};
 
   @media (max-width: 480px) {
-    padding: 20px 20px 18px;
-    border-radius: 16px;
+    padding: clamp(16px, 5vw, 24px) clamp(16px, 5vw, 24px) clamp(14px, 4vw, 20px);
+    border-radius: 18px;
+    max-width: 100%;
   }
 `;
 
@@ -45,6 +45,10 @@ export const ProfileSection = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
+
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
 `;
 
 export const Avatar = styled.img`
@@ -52,6 +56,11 @@ export const Avatar = styled.img`
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
+
+  @media (max-width: 480px) {
+    width: 44px;
+    height: 44px;
+  }
 `;
 
 export const NameBlock = styled.div``;
@@ -88,7 +97,8 @@ export const BookmarkIcon = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px;
+  min-width: 44px;
+  min-height: 44px;
   color: #9CA3AF;
   transition: color 0.15s ease;
 
@@ -107,12 +117,17 @@ export const Headline = styled.h2`
   margin-bottom: 0;
 
   @media (max-width: 480px) {
-    font-size: 19px;
+    font-size: clamp(17px, 4.5vw, 20px);
+    margin-top: 16px;
   }
 `;
 
 export const LocationBlock = styled.div`
   margin-top: 16px;
+
+  @media (max-width: 480px) {
+    margin-top: 12px;
+  }
 `;
 
 export const LocationLine = styled.p<{ $muted?: boolean; $bold?: boolean }>`
@@ -122,18 +137,31 @@ export const LocationLine = styled.p<{ $muted?: boolean; $bold?: boolean }>`
   font-weight: ${props => props.$bold ? '600' : '400'};
   margin: 0;
   line-height: 1.6;
+
+  @media (max-width: 480px) {
+    font-size: 13px;
+  }
 `;
 
 export const GlobeRow = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 12px;
+
+  @media (max-width: 480px) {
+    margin-top: 8px;
+  }
 `;
 
 export const BottomRow = styled.div`
   display: flex;
   gap: 10px;
   margin-top: 20px;
+
+  @media (max-width: 480px) {
+    gap: 8px;
+    margin-top: 16px;
+  }
 `;
 
 export const BottomButton = styled.button`
@@ -149,10 +177,20 @@ export const BottomButton = styled.button`
   font-family: ${fontStack};
   text-decoration: none;
   transition: border-color 0.15s ease, background-color 0.15s ease;
+  min-height: 48px;
 
   &:hover {
     border-color: #CBD5E0;
     background-color: #EDF2F7;
+  }
+
+  &:active {
+    background-color: #E2E8F0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px 14px;
+    border-radius: 10px;
   }
 `;
 
@@ -185,7 +223,7 @@ export const PopupOverlay = styled.div`
   }
 
   @media (max-width: 480px) {
-    padding: 12px;
+    padding: 0;
     align-items: flex-end;
   }
 `;
@@ -199,6 +237,7 @@ export const PopupCard = styled.div`
   max-height: 85vh;
   max-height: 85dvh;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
   display: flex;
   flex-direction: column;
@@ -214,8 +253,10 @@ export const PopupCard = styled.div`
   @media (max-width: 480px) {
     border-radius: 20px 20px 0 0;
     padding: 20px;
-    max-height: 90vh;
-    max-height: 90dvh;
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+    max-height: 92vh;
+    max-height: 92dvh;
+    max-width: 100%;
   }
 `;
 
@@ -242,6 +283,11 @@ export const PopupClose = styled.button`
   cursor: pointer;
   padding: 0 4px;
   line-height: 1;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: color 0.15s ease;
 
   &:hover {
@@ -261,6 +307,11 @@ export const VentureCard = styled.a`
     border-color: #CBD5E0;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   }
+
+  &:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
 `;
 
 export const VentureHeroImage = styled.img`
@@ -271,7 +322,7 @@ export const VentureHeroImage = styled.img`
   background: #F1F5F9;
 
   @media (max-width: 480px) {
-    height: 120px;
+    height: clamp(100px, 28vw, 130px);
   }
 `;
 

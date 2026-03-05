@@ -3,12 +3,18 @@ import { Link } from 'react-router-dom';
 
 export const WritingPageWrapper = styled.div`
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 48px 24px;
+  padding: max(48px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(48px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
   background-color: #B8CDD4;
+
+  @media (max-width: 480px) {
+    padding: max(32px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(32px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  }
 `;
 
 export const ArticleList = styled.nav`
@@ -33,8 +39,8 @@ export const ArticleLink = styled(Link)`
     transform: translateY(-1px);
   }
 
-  @media (max-width: 600px) {
-    font-size: 20px;
+  @media (max-width: 480px) {
+    font-size: clamp(18px, 5vw, 22px);
   }
 `;
 
@@ -43,6 +49,10 @@ export const HomeLink = styled(Link)`
   opacity: 0.6;
   transition: opacity 0.15s ease;
   display: flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     opacity: 1;
