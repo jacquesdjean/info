@@ -12,7 +12,7 @@ interface SEOProps {
 const defaults = {
   siteName: 'Jacques Jean',
   title: 'Jacques Jean — Building Stronger Businesses',
-  description: 'Investing in water & energy freedom. Based in Austin, Texas.',
+  description: 'Building systems in energy, water, and sales intelligence. Based in Austin, Texas.',
   image: 'https://framerusercontent.com/images/JApsSortn8lDy0Tsl66p6wcrM8.jpeg',
   url: 'https://jacquesjean.info',
 };
@@ -39,7 +39,7 @@ export function SEO({
     "url": "https://jacquesjean.info",
     "image": defaults.image,
     "jobTitle": "Investor & Entrepreneur",
-    "description": "Investing in water & energy freedom",
+    "description": "Building systems in energy, water, and sales intelligence",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Austin",
