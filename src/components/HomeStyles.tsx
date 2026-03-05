@@ -124,10 +124,9 @@ export const LocationLine = styled.p<{ $muted?: boolean; $bold?: boolean }>`
   line-height: 1.6;
 `;
 
-export const CardFooter = styled.div`
+export const GlobeRow = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content: flex-end;
   margin-top: 20px;
 `;
 
@@ -159,7 +158,7 @@ export const BottomButton = styled.button`
 
 export const BottomButtonLabel = styled.span`
   font-family: ${fontStack};
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   color: #1A202C;
 `;

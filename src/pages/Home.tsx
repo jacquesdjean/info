@@ -14,7 +14,7 @@ import {
   Headline,
   LocationBlock,
   LocationLine,
-  CardFooter,
+  GlobeRow,
   BottomRow,
   BottomButton,
   BottomButtonLabel,
@@ -92,9 +92,9 @@ export function Home() {
             <LocationLine $muted>CDT/DST UTC-5</LocationLine>
           </LocationBlock>
 
-          <CardFooter>
+          <GlobeRow>
             <Globe />
-          </CardFooter>
+          </GlobeRow>
 
           <BottomRow>
             <BottomButton as="a" href="https://cal.com/jacquesjean/phone" target="_blank" rel="noopener noreferrer">
