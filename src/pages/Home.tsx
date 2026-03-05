@@ -1,4 +1,3 @@
-import { useState, useCallback } from 'react';
 import { SEO } from '../components/SEO';
 import { Globe } from '../components/Globe';
 import {
@@ -16,17 +15,14 @@ import {
   LocationLine,
   CardFooter,
   PitchLink,
-  VenturesTrigger,
-  VenturesTriggerLabel,
-  VenturesTriggerArrow,
-  PopupOverlay,
-  PopupCard,
-  PopupHeader,
-  PopupTitle,
-  PopupClose,
+  Divider,
+  VenturesSection,
+  VenturesSectionTitle,
   VentureLink,
+  VentureInfo,
   VentureName,
   VentureDesc,
+  VentureArrow,
 } from '../components/HomeStyles';
 
 const BookmarkSVG = () => (
@@ -42,11 +38,6 @@ const ventures = [
 ];
 
 export function Home() {
-  const [showVentures, setShowVentures] = useState(false);
-
-  const openVentures = useCallback(() => setShowVentures(true), []);
-  const closeVentures = useCallback(() => setShowVentures(false), []);
-
   return (
     <>
       <SEO />
@@ -72,42 +63,35 @@ export function Home() {
 
           <Headline>Building systems in energy, water, and sales intelligence.</Headline>
 
-          <VenturesTrigger onClick={openVentures}>
-            <VenturesTriggerLabel>Current Ventures</VenturesTriggerLabel>
-            <VenturesTriggerArrow>&#8599;</VenturesTriggerArrow>
-          </VenturesTrigger>
-
           <LocationBlock>
             <LocationLine $bold>Based in Austin, Texas</LocationLine>
-            <LocationLine>United States of America</LocationLine>
+            <LocationLine>United States of America 🇺🇸</LocationLine>
             <LocationLine $muted>CDT/DST UTC-5</LocationLine>
           </LocationBlock>
 
           <CardFooter>
-            <PitchLink href="mailto:jacques@milkroute.ai">
+            <PitchLink href="https://cal.com/jacquesjean/phone" target="_blank" rel="noopener noreferrer">
               Pitch me on your idea!
             </PitchLink>
             <Globe />
           </CardFooter>
-        </Card>
-      </PageWrapper>
 
-      {showVentures && (
-        <PopupOverlay onClick={closeVentures}>
-          <PopupCard onClick={(e) => e.stopPropagation()}>
-            <PopupHeader>
-              <PopupTitle>Current Ventures</PopupTitle>
-              <PopupClose onClick={closeVentures}>&times;</PopupClose>
-            </PopupHeader>
+          <Divider />
+
+          <VenturesSection>
+            <VenturesSectionTitle>Current Ventures</VenturesSectionTitle>
             {ventures.map((v) => (
               <VentureLink key={v.name} href={v.url} target="_blank" rel="noopener noreferrer">
-                <VentureName>{v.name}</VentureName>
-                <VentureDesc>{v.desc}</VentureDesc>
+                <VentureInfo>
+                  <VentureName>{v.name}</VentureName>
+                  <VentureDesc>{v.desc}</VentureDesc>
+                </VentureInfo>
+                <VentureArrow>&#8599;</VentureArrow>
               </VentureLink>
             ))}
-          </PopupCard>
-        </PopupOverlay>
-      )}
+          </VenturesSection>
+        </Card>
+      </PageWrapper>
     </>
   );
 }
