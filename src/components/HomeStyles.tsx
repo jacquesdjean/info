@@ -150,17 +150,25 @@ export const VenturesTrigger = styled.button`
   justify-content: space-between;
   width: 100%;
   margin-top: 20px;
-  padding: 14px 16px;
-  background: #F7FAFC;
-  border: 1px solid #E2E8F0;
-  border-radius: 12px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e2ecf3 100%);
+  border: 1px solid #d0dbe6;
+  border-radius: 14px;
   cursor: pointer;
   font-family: ${fontStack};
-  transition: border-color 0.15s ease, background-color 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 
   &:hover {
-    border-color: #CBD5E0;
-    background-color: #EDF2F7;
+    border-color: #b0c4d8;
+    background: linear-gradient(135deg, #e8eff5 0%, #d6e4ef 100%);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   }
 `;
 
@@ -168,13 +176,16 @@ export const VenturesTriggerLabel = styled.span`
   font-family: ${fontStack};
   font-size: 14px;
   font-weight: 600;
-  color: #1A202C;
+  color: #2d3748;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
 `;
 
 export const VenturesTriggerArrow = styled.span<{ $open?: boolean }>`
   font-size: 18px;
   color: #718096;
-  transition: transform 0.25s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform: rotate(${props => props.$open ? '0deg' : '180deg'});
   line-height: 1;
 `;
@@ -182,12 +193,12 @@ export const VenturesTriggerArrow = styled.span<{ $open?: boolean }>`
 export const VenturesPanel = styled.div<{ $open?: boolean }>`
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
+  gap: 12px;
   overflow: hidden;
   max-height: ${props => props.$open ? '600px' : '0'};
   opacity: ${props => props.$open ? 1 : 0};
-  margin-top: ${props => props.$open ? '12px' : '0'};
-  transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.25s ease;
+  margin-top: ${props => props.$open ? '14px' : '0'};
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin-top 0.3s ease;
 `;
 
 export const VentureCardOverlay = styled.div`
@@ -208,17 +219,18 @@ export const VentureCard = styled.a<{ $hero: string }>`
   flex-direction: column;
   justify-content: space-between;
   height: 130px;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   text-decoration: none;
   background-image: url(${props => props.$hero});
   background-size: cover;
   background-position: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
   }
 
   &:hover ${VentureCardOverlay} {
