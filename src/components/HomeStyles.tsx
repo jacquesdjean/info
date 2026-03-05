@@ -127,7 +127,7 @@ export const LocationLine = styled.p<{ $muted?: boolean; $bold?: boolean }>`
 export const GlobeRow = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top: 20px;
+  margin-top: 12px;
 `;
 
 export const BottomRow = styled.div`
