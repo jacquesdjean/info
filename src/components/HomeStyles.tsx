@@ -139,20 +139,98 @@ export const PitchLink = styled.a`
   }
 `;
 
-export const VenturesSection = styled.div`
+export const VenturesTrigger = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   margin-top: 20px;
+  padding: 14px 16px;
+  background: #F7FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    border-color: #CBD5E0;
+    background-color: #EDF2F7;
+  }
+`;
+
+export const VenturesTriggerLabel = styled.span`
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A202C;
+`;
+
+export const VenturesTriggerArrow = styled.span`
+  font-size: 16px;
+  color: #718096;
+`;
+
+export const PopupOverlay = styled.div`
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  animation: fadeIn 0.15s ease;
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+`;
+
+export const PopupCard = styled.div`
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   gap: 10px;
+  animation: slideUp 0.2s ease;
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 `;
 
-export const VenturesLabel = styled.p`
-  font-size: 12px;
+export const PopupHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+`;
+
+export const PopupTitle = styled.h3`
+  font-size: 16px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #718096;
+  color: #1A202C;
   margin: 0;
+`;
+
+export const PopupClose = styled.button`
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #9CA3AF;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: #4A5568;
+  }
 `;
 
 export const VentureLink = styled.a`
