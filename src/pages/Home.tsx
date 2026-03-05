@@ -19,18 +19,13 @@ import {
   VenturesTrigger,
   VenturesTriggerLabel,
   VenturesTriggerArrow,
-  PopupOverlay,
-  PopupCard,
-  PopupHeader,
-  PopupTitle,
-  PopupClose,
+  VenturesPanel,
   VentureCard,
-  VentureHeroImage,
-  VentureCardBody,
-  VentureInfo,
+  VentureCardOverlay,
+  VentureTag,
+  VentureCardContent,
   VentureName,
   VentureDesc,
-  VentureArrow,
 } from '../components/HomeStyles';
 
 const BookmarkSVG = () => (
@@ -44,19 +39,22 @@ const ventures = [
     name: 'MilkRoute.ai',
     url: 'https://milkroute.ai',
     desc: 'Channel sales methodology for B2B founders',
-    hero: 'https://milkroute.ai/og-image.png',
+    hero: '/ventures/milkroute-og.png',
+    tag: 'Sales Intelligence',
   },
   {
     name: 'BlueSignal',
     url: 'https://bluesignal.xyz',
     desc: 'Water quality monitoring hardware',
-    hero: 'https://bluesignal.xyz/og-image.png',
+    hero: '/ventures/bluesignal-og.png',
+    tag: 'Water Tech',
   },
   {
     name: 'WaterQuality.Trading',
     url: 'https://waterquality.trading',
     desc: 'Nutrient credit marketplace',
-    hero: 'https://waterquality.trading/logo.png',
+    hero: '/ventures/waterquality-og.png',
+    tag: 'Marketplace',
   },
 ];
 
@@ -99,35 +97,25 @@ export function Home() {
             <Globe />
           </CardFooter>
 
-          <VenturesTrigger onClick={() => setShowVentures(true)}>
+          <VenturesTrigger onClick={() => setShowVentures(!showVentures)}>
             <VenturesTriggerLabel>Current Ventures</VenturesTriggerLabel>
-            <VenturesTriggerArrow>&#8599;</VenturesTriggerArrow>
+            <VenturesTriggerArrow $open={showVentures}>&#8963;</VenturesTriggerArrow>
           </VenturesTrigger>
-        </Card>
-      </PageWrapper>
 
-      {showVentures && (
-        <PopupOverlay onClick={(e) => e.target === e.currentTarget && setShowVentures(false)}>
-          <PopupCard>
-            <PopupHeader>
-              <PopupTitle>Current Ventures</PopupTitle>
-              <PopupClose onClick={() => setShowVentures(false)}>&times;</PopupClose>
-            </PopupHeader>
+          <VenturesPanel $open={showVentures}>
             {ventures.map((v) => (
-              <VentureCard key={v.name} href={v.url} target="_blank" rel="noopener noreferrer">
-                <VentureHeroImage src={v.hero} alt={`${v.name} hero`} loading="lazy" />
-                <VentureCardBody>
-                  <VentureInfo>
-                    <VentureName>{v.name}</VentureName>
-                    <VentureDesc>{v.desc}</VentureDesc>
-                  </VentureInfo>
-                  <VentureArrow>&#8599;</VentureArrow>
-                </VentureCardBody>
+              <VentureCard key={v.name} href={v.url} target="_blank" rel="noopener noreferrer" $hero={v.hero}>
+                <VentureCardOverlay />
+                <VentureTag>{v.tag}</VentureTag>
+                <VentureCardContent>
+                  <VentureName>{v.name}</VentureName>
+                  <VentureDesc>{v.desc}</VentureDesc>
+                </VentureCardContent>
               </VentureCard>
             ))}
-          </PopupCard>
-        </PopupOverlay>
-      )}
+          </VenturesPanel>
+        </Card>
+      </PageWrapper>
     </>
   );
 }
