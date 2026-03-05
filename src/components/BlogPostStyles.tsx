@@ -3,11 +3,17 @@ import { Link } from 'react-router-dom';
 
 export const ArticlePageWrapper = styled.div`
   min-height: 100vh;
+  min-height: 100dvh;
   background-color: #B8CDD4;
   padding: 48px 24px;
+  padding: max(48px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(48px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
   display: flex;
   justify-content: center;
   align-items: flex-start;
+
+  @media (max-width: 480px) {
+    padding: max(16px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  }
 `;
 
 export const ArticleCard = styled.article`
@@ -19,9 +25,10 @@ export const ArticleCard = styled.article`
   margin-top: 24px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 
-  @media (max-width: 600px) {
-    padding: 24px;
+  @media (max-width: 480px) {
+    padding: clamp(16px, 5vw, 24px);
     margin-top: 0;
+    border-radius: 14px;
   }
 `;
 
@@ -34,6 +41,7 @@ export const BackLink = styled(Link)`
   opacity: 0.6;
   margin-bottom: 32px;
   transition: opacity 0.15s ease;
+  min-height: 44px;
 
   &:hover {
     opacity: 1;
@@ -48,8 +56,8 @@ export const ArticleTitle = styled.h1`
   line-height: 1.2;
   margin-bottom: 16px;
 
-  @media (max-width: 600px) {
-    font-size: 28px;
+  @media (max-width: 480px) {
+    font-size: clamp(24px, 6vw, 30px);
   }
 `;
 

@@ -3,11 +3,17 @@ import { Link } from 'react-router-dom';
 
 export const LibraryPageWrapper = styled.div`
   min-height: 100vh;
+  min-height: 100dvh;
   background-color: #B8CDD4;
   padding: 48px 24px;
+  padding: max(48px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(48px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
   display: flex;
   justify-content: center;
   align-items: flex-start;
+
+  @media (max-width: 480px) {
+    padding: max(16px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  }
 `;
 
 export const LibraryCard = styled.div`
@@ -19,9 +25,10 @@ export const LibraryCard = styled.div`
   margin-top: 24px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 
-  @media (max-width: 600px) {
-    padding: 24px;
+  @media (max-width: 480px) {
+    padding: clamp(16px, 5vw, 24px);
     margin-top: 0;
+    border-radius: 14px;
   }
 `;
 
@@ -48,6 +55,7 @@ export const BackLink = styled(Link)`
   color: #1A202C;
   opacity: 0.6;
   transition: opacity 0.15s ease;
+  min-height: 44px;
 
   &:hover {
     opacity: 1;
@@ -70,6 +78,11 @@ export const EntryItem = styled(Link)`
   &:hover {
     background: #F3F4F6;
     transform: translateY(-1px);
+  }
+
+  &:active {
+    background: #EDF2F7;
+    transform: scale(0.99);
   }
 `;
 
