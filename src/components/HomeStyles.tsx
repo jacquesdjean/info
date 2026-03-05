@@ -131,31 +131,24 @@ export const CardFooter = styled.div`
   margin-top: 20px;
 `;
 
-export const PitchLink = styled.a`
-  font-family: ${fontStack};
-  font-size: 14px;
-  color: #1A202C;
-  font-style: italic;
-  text-decoration: none;
-  transition: opacity 0.15s ease;
-
-  &:hover {
-    opacity: 0.7;
-  }
+export const BottomRow = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
 `;
 
-export const VenturesTrigger = styled.button`
+export const BottomButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  margin-top: 20px;
+  flex: 1;
   padding: 14px 16px;
   background: #F7FAFC;
   border: 1px solid #E2E8F0;
   border-radius: 12px;
   cursor: pointer;
   font-family: ${fontStack};
+  text-decoration: none;
   transition: border-color 0.15s ease, background-color 0.15s ease;
 
   &:hover {
@@ -164,14 +157,14 @@ export const VenturesTrigger = styled.button`
   }
 `;
 
-export const VenturesTriggerLabel = styled.span`
+export const BottomButtonLabel = styled.span`
   font-family: ${fontStack};
   font-size: 14px;
   font-weight: 600;
   color: #1A202C;
 `;
 
-export const VenturesTriggerArrow = styled.span`
+export const BottomButtonArrow = styled.span`
   font-size: 16px;
   color: #718096;
 `;

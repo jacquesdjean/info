@@ -15,10 +15,10 @@ import {
   LocationBlock,
   LocationLine,
   CardFooter,
-  PitchLink,
-  VenturesTrigger,
-  VenturesTriggerLabel,
-  VenturesTriggerArrow,
+  BottomRow,
+  BottomButton,
+  BottomButtonLabel,
+  BottomButtonArrow,
   PopupOverlay,
   PopupCard,
   PopupHeader,
@@ -84,7 +84,7 @@ export function Home() {
             </BookmarkIcon>
           </CardHeader>
 
-          <Headline>Building systems in energy, water, and sales intelligence.</Headline>
+          <Headline>Building systems in energy, water, and sales enablement.</Headline>
 
           <LocationBlock>
             <LocationLine $bold>Based in Austin, Texas</LocationLine>
@@ -93,16 +93,19 @@ export function Home() {
           </LocationBlock>
 
           <CardFooter>
-            <PitchLink href="https://cal.com/jacquesjean/phone" target="_blank" rel="noopener noreferrer">
-              Pitch me on your idea!
-            </PitchLink>
             <Globe />
           </CardFooter>
 
-          <VenturesTrigger onClick={() => setShowVentures(true)}>
-            <VenturesTriggerLabel>Current Ventures</VenturesTriggerLabel>
-            <VenturesTriggerArrow>&#8599;</VenturesTriggerArrow>
-          </VenturesTrigger>
+          <BottomRow>
+            <BottomButton as="a" href="https://cal.com/jacquesjean/phone" target="_blank" rel="noopener noreferrer">
+              <BottomButtonLabel>Pitch me on your idea!</BottomButtonLabel>
+              <BottomButtonArrow>&#8599;</BottomButtonArrow>
+            </BottomButton>
+            <BottomButton onClick={() => setShowVentures(true)}>
+              <BottomButtonLabel>Current Ventures</BottomButtonLabel>
+              <BottomButtonArrow>&#8599;</BottomButtonArrow>
+            </BottomButton>
+          </BottomRow>
         </Card>
       </PageWrapper>
 
