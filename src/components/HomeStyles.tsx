@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+const fontStack = "'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+
 export const PageWrapper = styled.div`
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,18 +13,26 @@ export const PageWrapper = styled.div`
   background-color: #B8CDD4;
 
   @media (max-width: 480px) {
-    padding: 16px;
+    padding: 12px;
+    align-items: flex-start;
+    padding-top: 32px;
   }
 `;
 
 export const Card = styled.div`
   background: #FFFFFF;
-  border-radius: 16px;
-  padding: 24px 28px;
+  border-radius: 20px;
+  padding: 28px 28px 24px;
   max-width: 420px;
   width: 100%;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
   position: relative;
+  font-family: ${fontStack};
+
+  @media (max-width: 480px) {
+    padding: 20px 20px 18px;
+    border-radius: 16px;
+  }
 `;
 
 export const CardHeader = styled.div`
@@ -46,6 +57,7 @@ export const Avatar = styled.img`
 export const NameBlock = styled.div``;
 
 export const Name = styled.h1`
+  font-family: ${fontStack};
   font-size: 16px;
   font-weight: 600;
   color: #1A202C;
@@ -53,9 +65,10 @@ export const Name = styled.h1`
 `;
 
 export const Tagline = styled.p`
+  font-family: ${fontStack};
   font-size: 14px;
   color: #718096;
-  font-weight: 700;
+  font-weight: 500;
   margin: 0;
   display: flex;
   align-items: center;
@@ -85,35 +98,25 @@ export const BookmarkIcon = styled(Link)`
 `;
 
 export const Headline = styled.h2`
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: ${fontStack};
   font-size: 21px;
   font-weight: 600;
   color: #1A202C;
-  line-height: 1.3;
+  line-height: 1.35;
   margin-top: 20px;
   margin-bottom: 0;
-`;
 
-export const LinkText = styled.a`
-  display: block;
-  font-size: 15px;
-  color: #1A202C;
-  margin-top: 12px;
-  margin-bottom: 0;
-  transition: opacity 0.15s ease;
-
-  &:hover {
-    opacity: 0.7;
-    text-decoration: underline;
+  @media (max-width: 480px) {
+    font-size: 19px;
   }
 `;
 
 export const LocationBlock = styled.div`
   margin-top: 16px;
-  margin-bottom: 24px;
 `;
 
 export const LocationLine = styled.p<{ $muted?: boolean; $bold?: boolean }>`
+  font-family: ${fontStack};
   font-size: 14px;
   color: ${props => props.$muted ? '#718096' : '#1A202C'};
   font-weight: ${props => props.$bold ? '600' : '400'};
@@ -129,9 +132,11 @@ export const CardFooter = styled.div`
 `;
 
 export const PitchLink = styled.a`
+  font-family: ${fontStack};
   font-size: 14px;
   color: #1A202C;
   font-style: italic;
+  text-decoration: none;
   transition: opacity 0.15s ease;
 
   &:hover {
@@ -139,102 +144,32 @@ export const PitchLink = styled.a`
   }
 `;
 
-export const VenturesTrigger = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 20px;
-  padding: 14px 16px;
-  background: #F7FAFC;
-  border: 1px solid #E2E8F0;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: border-color 0.15s ease, background-color 0.15s ease;
-
-  &:hover {
-    border-color: #CBD5E0;
-    background-color: #EDF2F7;
-  }
+export const Divider = styled.hr`
+  border: none;
+  border-top: 1px solid #E2E8F0;
+  margin: 20px 0 16px;
 `;
 
-export const VenturesTriggerLabel = styled.span`
-  font-size: 14px;
-  font-weight: 600;
-  color: #1A202C;
-`;
-
-export const VenturesTriggerArrow = styled.span`
-  font-size: 16px;
-  color: #718096;
-`;
-
-export const PopupOverlay = styled.div`
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 24px;
-  animation: fadeIn 0.15s ease;
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-`;
-
-export const PopupCard = styled.div`
-  background: #FFFFFF;
-  border-radius: 16px;
-  padding: 24px;
-  max-width: 400px;
-  width: 100%;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+export const VenturesSection = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  animation: slideUp 0.2s ease;
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  gap: 8px;
 `;
 
-export const PopupHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 4px;
-`;
-
-export const PopupTitle = styled.h3`
-  font-size: 16px;
+export const VenturesSectionTitle = styled.h3`
+  font-family: ${fontStack};
+  font-size: 13px;
   font-weight: 600;
-  color: #1A202C;
-  margin: 0;
-`;
-
-export const PopupClose = styled.button`
-  background: none;
-  border: none;
-  font-size: 22px;
-  color: #9CA3AF;
-  cursor: pointer;
-  padding: 0 4px;
-  line-height: 1;
-  transition: color 0.15s ease;
-
-  &:hover {
-    color: #4A5568;
-  }
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 4px;
 `;
 
 export const VentureLink = styled.a`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 12px 14px;
   border: 1px solid #E2E8F0;
   border-radius: 10px;
@@ -246,16 +181,31 @@ export const VentureLink = styled.a`
   }
 `;
 
+export const VentureInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+`;
+
 export const VentureName = styled.span`
-  display: block;
+  font-family: ${fontStack};
   font-size: 14px;
   font-weight: 600;
   color: #1A202C;
 `;
 
 export const VentureDesc = styled.span`
-  display: block;
+  font-family: ${fontStack};
   font-size: 13px;
   color: #718096;
-  margin-top: 2px;
+  margin-top: 1px;
 `;
+
+export const VentureArrow = styled.span`
+  font-size: 14px;
+  color: #9CA3AF;
+  flex-shrink: 0;
+  margin-left: 12px;
+`;
+
+/* Keeping unused exports removed — popup is no longer used */
