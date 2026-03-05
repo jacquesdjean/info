@@ -11,11 +11,15 @@ import {
   Tagline,
   BookmarkIcon,
   Headline,
-  LinkText,
   LocationBlock,
   LocationLine,
   CardFooter,
   PitchLink,
+  VenturesSection,
+  VenturesLabel,
+  VentureLink,
+  VentureName,
+  VentureDesc,
 } from '../components/HomeStyles';
 
 const BookmarkSVG = () => (
@@ -23,6 +27,13 @@ const BookmarkSVG = () => (
     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
   </svg>
 );
+
+const ventures = [
+  { name: 'MilkRoute.ai', url: 'https://milkroute.ai', desc: 'Channel sales methodology for B2B founders' },
+  { name: 'BlueSignal', url: 'https://bluesignal.xyz', desc: 'Water quality monitoring hardware' },
+  { name: 'WaterQuality.Trading', url: 'https://waterquality.trading', desc: 'Nutrient credit marketplace' },
+  { name: 'Aquaria.world', url: 'https://aquaria.world', desc: 'Dealer-installer network for water systems' },
+];
 
 export function Home() {
   return (
@@ -48,18 +59,26 @@ export function Home() {
             </BookmarkIcon>
           </CardHeader>
 
-          <Headline>Investing in water & energy freedom.</Headline>
+          <Headline>Building systems in energy, water, and sales intelligence.</Headline>
 
-          <LinkText href="https://www.upwork.com/freelancers/~01229e152775e587d5" target="_blank" rel="noopener noreferrer">Check out my other work!</LinkText>
+          <VenturesSection>
+            <VenturesLabel>Current Ventures</VenturesLabel>
+            {ventures.map((v) => (
+              <VentureLink key={v.name} href={v.url} target="_blank" rel="noopener noreferrer">
+                <VentureName>{v.name}</VentureName>
+                <VentureDesc>{v.desc}</VentureDesc>
+              </VentureLink>
+            ))}
+          </VenturesSection>
 
           <LocationBlock>
             <LocationLine $bold>Based in Austin, Texas</LocationLine>
-            <LocationLine>United States of America 🇺🇸</LocationLine>
+            <LocationLine>United States of America</LocationLine>
             <LocationLine $muted>CDT/DST UTC-5</LocationLine>
           </LocationBlock>
 
           <CardFooter>
-            <PitchLink href="mailto:me@jacquesjean.info">
+            <PitchLink href="mailto:jacques@milkroute.ai">
               Pitch me on your idea!
             </PitchLink>
             <Globe />

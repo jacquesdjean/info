@@ -138,3 +138,46 @@ export const PitchLink = styled.a`
     opacity: 0.7;
   }
 `;
+
+export const VenturesSection = styled.div`
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+export const VenturesLabel = styled.p`
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #718096;
+  margin: 0;
+`;
+
+export const VentureLink = styled.a`
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    border-color: #CBD5E0;
+    background-color: #F7FAFC;
+  }
+`;
+
+export const VentureName = styled.span`
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A202C;
+`;
+
+export const VentureDesc = styled.span`
+  display: block;
+  font-size: 13px;
+  color: #718096;
+  margin-top: 2px;
+`;
