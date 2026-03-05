@@ -171,105 +171,147 @@ export const VenturesTriggerLabel = styled.span`
   color: #1A202C;
 `;
 
-export const VenturesTriggerArrow = styled.span<{ $open?: boolean }>`
-  font-size: 18px;
+export const VenturesTriggerArrow = styled.span`
+  font-size: 16px;
   color: #718096;
-  transition: transform 0.25s ease;
-  transform: rotate(${props => props.$open ? '0deg' : '180deg'});
-  line-height: 1;
 `;
 
-export const VenturesPanel = styled.div<{ $open?: boolean }>`
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  overflow: hidden;
-  max-height: ${props => props.$open ? '600px' : '0'};
-  opacity: ${props => props.$open ? 1 : 0};
-  margin-top: ${props => props.$open ? '12px' : '0'};
-  transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.25s ease;
-`;
-
-export const VentureCardOverlay = styled.div`
-  position: absolute;
+export const PopupOverlay = styled.div`
+  position: fixed;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.55) 0%,
-    rgba(0, 0, 0, 0.25) 50%,
-    rgba(0, 0, 0, 0.1) 100%
-  );
-  transition: background 0.25s ease;
-`;
-
-export const VentureCard = styled.a<{ $hero: string }>`
-  position: relative;
+  background: rgba(0, 0, 0, 0.45);
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 130px;
-  border-radius: 12px;
-  overflow: hidden;
-  text-decoration: none;
-  background-image: url(${props => props.$hero});
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  animation: fadeIn 0.15s ease;
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  &:hover ${VentureCardOverlay} {
-    background: linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.65) 0%,
-      rgba(0, 0, 0, 0.35) 50%,
-      rgba(0, 0, 0, 0.15) 100%
-    );
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   @media (max-width: 480px) {
-    height: 115px;
+    padding: 12px;
+    align-items: flex-end;
   }
 `;
 
-export const VentureTag = styled.span`
-  position: relative;
-  z-index: 1;
-  align-self: flex-start;
-  margin: 12px 0 0 12px;
-  padding: 3px 10px;
+export const PopupCard = styled.div`
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 24px;
+  max-width: 440px;
+  width: 100%;
+  max-height: 85vh;
+  max-height: 85dvh;
+  overflow-y: auto;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   font-family: ${fontStack};
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  border-radius: 6px;
+  animation: slideUp 0.2s ease;
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 480px) {
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    max-height: 90vh;
+    max-height: 90dvh;
+  }
 `;
 
-export const VentureCardContent = styled.div`
-  position: relative;
-  z-index: 1;
-  padding: 0 14px 12px;
+export const PopupHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+`;
+
+export const PopupTitle = styled.h3`
+  font-family: ${fontStack};
+  font-size: 16px;
+  font-weight: 600;
+  color: #1A202C;
+  margin: 0;
+`;
+
+export const PopupClose = styled.button`
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #9CA3AF;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: #4A5568;
+  }
+`;
+
+export const VentureCard = styled.a`
+  display: block;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    border-color: #CBD5E0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+`;
+
+export const VentureHeroImage = styled.img`
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  background: #F1F5F9;
+
+  @media (max-width: 480px) {
+    height: 120px;
+  }
+`;
+
+export const VentureCardBody = styled.div`
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const VentureInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 `;
 
 export const VentureName = styled.span`
   font-family: ${fontStack};
-  font-size: 16px;
-  font-weight: 700;
-  color: #FFFFFF;
-  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A202C;
 `;
 
 export const VentureDesc = styled.span`
   font-family: ${fontStack};
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.75);
-  margin-top: 2px;
-  display: block;
+  color: #718096;
+`;
+
+export const VentureArrow = styled.span`
+  font-size: 16px;
+  color: #9CA3AF;
+  flex-shrink: 0;
+  margin-left: 12px;
 `;
