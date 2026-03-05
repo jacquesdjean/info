@@ -13,7 +13,7 @@ const defaults = {
   siteName: 'Jacques Jean',
   title: 'Jacques Jean — Building Stronger Businesses',
   description: 'Building systems in energy, water, and sales intelligence. Based in Austin, Texas.',
-  image: 'https://framerusercontent.com/images/JApsSortn8lDy0Tsl66p6wcrM8.jpeg',
+  image: 'https://jacquesjean.info/og-image.png',
   url: 'https://jacquesjean.info',
 };
 
