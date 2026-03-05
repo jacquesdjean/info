@@ -45,8 +45,8 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JACQUESJEAN_SITE }}
-          projectId: jacquesjean-site
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JACQUES_INFO }}
+          projectId: jacques-info
           expires: 7d
 
   deploy-production:
@@ -64,6 +64,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JACQUESJEAN_SITE }}
-          projectId: jacquesjean-site
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JACQUES_INFO }}
+          projectId: jacques-info
           channelId: live
