@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { SEO } from '../components/SEO';
 import { Globe } from '../components/Globe';
 import {
@@ -15,10 +16,17 @@ import {
   LocationLine,
   CardFooter,
   PitchLink,
-  Divider,
-  VenturesSection,
-  VenturesSectionTitle,
-  VentureLink,
+  VenturesTrigger,
+  VenturesTriggerLabel,
+  VenturesTriggerArrow,
+  PopupOverlay,
+  PopupCard,
+  PopupHeader,
+  PopupTitle,
+  PopupClose,
+  VentureCard,
+  VentureHeroImage,
+  VentureCardBody,
   VentureInfo,
   VentureName,
   VentureDesc,
@@ -32,12 +40,29 @@ const BookmarkSVG = () => (
 );
 
 const ventures = [
-  { name: 'MilkRoute.ai', url: 'https://milkroute.ai', desc: 'Channel sales methodology for B2B founders' },
-  { name: 'BlueSignal', url: 'https://bluesignal.xyz', desc: 'Water quality monitoring hardware' },
-  { name: 'WaterQuality.Trading', url: 'https://waterquality.trading', desc: 'Nutrient credit marketplace' },
+  {
+    name: 'MilkRoute.ai',
+    url: 'https://milkroute.ai',
+    desc: 'Channel sales methodology for B2B founders',
+    hero: 'https://milkroute.ai/og-image.png',
+  },
+  {
+    name: 'BlueSignal',
+    url: 'https://bluesignal.xyz',
+    desc: 'Water quality monitoring hardware',
+    hero: 'https://bluesignal.xyz/og-image.png',
+  },
+  {
+    name: 'WaterQuality.Trading',
+    url: 'https://waterquality.trading',
+    desc: 'Nutrient credit marketplace',
+    hero: 'https://waterquality.trading/logo.png',
+  },
 ];
 
 export function Home() {
+  const [showVentures, setShowVentures] = useState(false);
+
   return (
     <>
       <SEO />
@@ -51,9 +76,7 @@ export function Home() {
               />
               <NameBlock>
                 <Name>Jacques Jean</Name>
-                <Tagline>
-                  Building Stronger Businesses
-                </Tagline>
+                <Tagline>Building Stronger Businesses</Tagline>
               </NameBlock>
             </ProfileSection>
             <BookmarkIcon to="/library" aria-label="Library">
@@ -76,22 +99,35 @@ export function Home() {
             <Globe />
           </CardFooter>
 
-          <Divider />
-
-          <VenturesSection>
-            <VenturesSectionTitle>Current Ventures</VenturesSectionTitle>
-            {ventures.map((v) => (
-              <VentureLink key={v.name} href={v.url} target="_blank" rel="noopener noreferrer">
-                <VentureInfo>
-                  <VentureName>{v.name}</VentureName>
-                  <VentureDesc>{v.desc}</VentureDesc>
-                </VentureInfo>
-                <VentureArrow>&#8599;</VentureArrow>
-              </VentureLink>
-            ))}
-          </VenturesSection>
+          <VenturesTrigger onClick={() => setShowVentures(true)}>
+            <VenturesTriggerLabel>Current Ventures</VenturesTriggerLabel>
+            <VenturesTriggerArrow>&#8599;</VenturesTriggerArrow>
+          </VenturesTrigger>
         </Card>
       </PageWrapper>
+
+      {showVentures && (
+        <PopupOverlay onClick={(e) => e.target === e.currentTarget && setShowVentures(false)}>
+          <PopupCard>
+            <PopupHeader>
+              <PopupTitle>Current Ventures</PopupTitle>
+              <PopupClose onClick={() => setShowVentures(false)}>&times;</PopupClose>
+            </PopupHeader>
+            {ventures.map((v) => (
+              <VentureCard key={v.name} href={v.url} target="_blank" rel="noopener noreferrer">
+                <VentureHeroImage src={v.hero} alt={`${v.name} hero`} loading="lazy" />
+                <VentureCardBody>
+                  <VentureInfo>
+                    <VentureName>{v.name}</VentureName>
+                    <VentureDesc>{v.desc}</VentureDesc>
+                  </VentureInfo>
+                  <VentureArrow>&#8599;</VentureArrow>
+                </VentureCardBody>
+              </VentureCard>
+            ))}
+          </PopupCard>
+        </PopupOverlay>
+      )}
     </>
   );
 }
