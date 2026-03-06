@@ -43,7 +43,7 @@ const ventures = [
   {
     name: 'MilkRoute.ai',
     url: 'https://milkroute.ai',
-    desc: 'Channel sales methodology for B2B founders',
+    desc: 'Channel sales for founders',
     hero: '/ventures/milkroute-og.png',
   },
   {
@@ -55,7 +55,7 @@ const ventures = [
   {
     name: 'WaterQuality.Trading',
     url: 'https://waterquality.trading',
-    desc: 'Nutrient credit marketplace',
+    desc: 'Water quality credit marketplace',
     hero: '/ventures/waterquality-og.png',
   },
 ];
@@ -98,7 +98,7 @@ export function Home() {
 
           <BottomRow>
             <BottomButton as="a" href="https://cal.com/jacquesjean/phone" target="_blank" rel="noopener noreferrer">
-              <BottomButtonLabel>Pitch me on your idea!</BottomButtonLabel>
+              <BottomButtonLabel>Pitch me your idea!</BottomButtonLabel>
               <BottomButtonArrow>&#8599;</BottomButtonArrow>
             </BottomButton>
             <BottomButton onClick={() => setShowVentures(true)}>
