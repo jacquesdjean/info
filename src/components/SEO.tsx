@@ -45,7 +45,11 @@ export function SEO({
       "addressLocality": "Austin",
       "addressRegion": "TX",
       "addressCountry": "US"
-    }
+    },
+    "sameAs": [
+      "https://cal.com/jacquesjean"
+    ],
+    "knowsAbout": ["energy", "water quality", "sales enablement", "channel sales"]
   };
 
   return (
@@ -65,6 +69,10 @@ export function SEO({
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
+
+      <meta name="robots" content="index, follow" />
+      <meta name="author" content="Jacques Jean" />
+      <meta name="keywords" content="Jacques Jean, energy, water, sales enablement, channel sales, Austin Texas, entrepreneur, investor" />
 
       <link rel="canonical" href={seo.url} />
 

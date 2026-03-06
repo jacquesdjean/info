@@ -199,6 +199,8 @@ export const BottomButtonLabel = styled.span`
   font-size: 12px;
   font-weight: 600;
   color: #1A202C;
+  flex: 1;
+  text-align: center;
 `;
 
 export const BottomButtonArrow = styled.span`
