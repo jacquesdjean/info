@@ -94,14 +94,3 @@ Everything I've built — the buoy systems, the sensors, the gateways, the analy
 
 If you're interested — as a partner, a pilot site, a utility, a municipality, or a regulator — reach out.
 
----
-
-Faciamus,
-Jacques Jean
-
-[Check out my other work!](https://www.upwork.com/freelancers/~01229e152775e587d5)
-
-Based in Austin, Texas
-United States of America
-
-The views expressed in this article are solely my own and do not represent those of my current or former employers, business partners, or affiliates.
