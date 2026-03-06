@@ -88,14 +88,3 @@ The states and markets that embrace this shift first will define the next decade
 
 And the companies that adapt—leaner, more disciplined, more customer-centric—will build a more stable, credible, and future-proof solar market.
 
----
-
-Faciamus,
-Jacques Jean
-
-[Check out my other work!](https://www.upwork.com/freelancers/~01229e152775e587d5)
-
-Based in Austin, Texas
-United States of America
-
-The views expressed in this article are solely my own and do not represent those of my current or former employers, business partners, or affiliates.

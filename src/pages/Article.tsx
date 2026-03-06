@@ -8,6 +8,12 @@ import {
   ArticleTitle,
   ArticleMeta,
   ArticleContent,
+  AuthorSignature,
+  SignatureGreeting,
+  SignatureName,
+  SignatureLink,
+  SignatureLocation,
+  SignatureDisclaimer,
   ArticleFooter,
   ArrowLeft,
 } from '../components/BlogPostStyles';
@@ -49,6 +55,27 @@ export function Article() {
           </ArticleMeta>
 
           <ArticleContent dangerouslySetInnerHTML={{ __html: post.content }} />
+
+          <AuthorSignature>
+            <SignatureGreeting>Faciamus,</SignatureGreeting>
+            <SignatureName>Jacques Jean</SignatureName>
+            <SignatureLink
+              href="https://www.upwork.com/freelancers/~01229e152775e587d5"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Check out my other work!
+            </SignatureLink>
+            <SignatureLocation>
+              Based in Austin, Texas<br />
+              United States of America
+            </SignatureLocation>
+            <SignatureDisclaimer>
+              The views expressed in this article are solely my own and do not
+              represent those of my current or former employers, business
+              partners, or affiliates.
+            </SignatureDisclaimer>
+          </AuthorSignature>
 
           <ArticleFooter>
             <HomeLink to="/" aria-label="Home">

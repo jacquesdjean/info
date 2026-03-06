@@ -139,10 +139,54 @@ export const ArticleContent = styled.div`
   }
 `;
 
-export const ArticleFooter = styled.div`
+export const AuthorSignature = styled.div`
   margin-top: 48px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #718096;
+`;
+
+export const SignatureGreeting = styled.p`
+  font-style: italic;
+  margin-bottom: 2px;
+  color: #4A5568;
+`;
+
+export const SignatureName = styled.p`
+  font-weight: 600;
+  font-size: 16px;
+  color: #2D3748;
+  margin-bottom: 16px;
+`;
+
+export const SignatureLink = styled.a`
+  color: #4A5568;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+`;
+
+export const SignatureLocation = styled.p`
+  margin-top: 16px;
+  margin-bottom: 4px;
+`;
+
+export const SignatureDisclaimer = styled.p`
+  margin-top: 16px;
+  font-size: 12px;
+  color: #A0AEC0;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+export const ArticleFooter = styled.div`
+  margin-top: 32px;
   text-align: center;
 `;
 
