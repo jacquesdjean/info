@@ -114,7 +114,7 @@ export function Home() {
           <PopupCard>
             <PopupHeader>
               <PopupTitle>Current Ventures</PopupTitle>
-              <PopupClose onClick={() => setShowVentures(false)}>&times;</PopupClose>
+              <PopupClose onClick={() => setShowVentures(false)} aria-label="Close ventures modal">&times;</PopupClose>
             </PopupHeader>
             {ventures.map((v) => (
               <VentureCard key={v.name} href={v.url} target="_blank" rel="noopener noreferrer">

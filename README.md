@@ -1,17 +1,17 @@
 # jacquesjean.info
 
-Personal website and blog for Jacques Jean. Built with React, TypeScript, and Vite.
+Personal portfolio and blog for Jacques Jean — building systems in energy, water, and sales enablement. Based in Austin, Texas.
 
 ## Tech Stack
 
 - **React 18** + TypeScript
-- **Vite** for fast builds
-- **Styled Components** for styling
+- **Vite** for development and builds
+- **styled-components** for styling
 - **React Router** for client-side routing
 - **React Helmet Async** for SEO meta tags
-- **Markdown** blog posts with gray-matter and remark
+- **Markdown** blog posts processed with gray-matter and remark
 
-## Development
+## Getting Started
 
 ```bash
 # Install dependencies
@@ -30,13 +30,20 @@ npm run preview
 ## Project Structure
 
 ```
-├── content/posts/     # Markdown blog posts
-├── public/            # Static assets
-├── scripts/           # Build scripts
+├── content/posts/        # Markdown blog posts
+├── public/               # Static assets (images, favicons, OG images)
+│   └── ventures/         # OG images for current ventures
+├── scripts/              # Build scripts (posts processing)
 └── src/
-    ├── components/    # React components
-    ├── data/          # Generated posts.json
-    └── pages/         # Page components
+    ├── components/       # Reusable components and styled-components
+    │   ├── GlobalStyles.tsx
+    │   ├── HomeStyles.tsx
+    │   ├── LibraryStyles.tsx
+    │   ├── BlogStyles.tsx
+    │   ├── SEO.tsx
+    │   └── Globe.tsx
+    ├── data/             # Generated posts.json
+    └── pages/            # Page components (Home, Library, Writing, Article)
 ```
 
 ## Adding Blog Posts
@@ -58,7 +65,7 @@ Run `npm run build:posts` to regenerate the posts data.
 
 ## Deployment
 
-Configured for Firebase Hosting:
+Deployed via Firebase Hosting:
 
 ```bash
 npm run deploy
