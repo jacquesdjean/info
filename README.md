@@ -1,6 +1,6 @@
 # jacquesjean.info
 
-Personal portfolio and blog for Jacques Jean — building systems in energy, water, and sales enablement. Based in Austin, Texas.
+Personal portfolio and blog for Jacques Jean — building systems in energy and water. Based in Austin, Texas.
 
 ## Tech Stack
 

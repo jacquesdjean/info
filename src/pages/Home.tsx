@@ -41,12 +41,6 @@ const BookmarkSVG = () => (
 
 const ventures = [
   {
-    name: 'MilkRoute.ai',
-    url: 'https://milkroute.ai',
-    desc: 'Channel sales for founders',
-    hero: '/ventures/milkroute-og.png',
-  },
-  {
     name: 'BlueSignal',
     url: 'https://bluesignal.xyz',
     desc: 'Water quality monitoring hardware',
@@ -84,7 +78,7 @@ export function Home() {
             </BookmarkIcon>
           </CardHeader>
 
-          <Headline>Building systems in energy, water, and sales enablement.</Headline>
+          <Headline>Building systems in energy and water.</Headline>
 
           <LocationBlock>
             <LocationLine $bold>Based in Austin, Texas</LocationLine>

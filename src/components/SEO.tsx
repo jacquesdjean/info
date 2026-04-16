@@ -12,7 +12,7 @@ interface SEOProps {
 const defaults = {
   siteName: 'Jacques Jean',
   title: 'Jacques Jean — Building Stronger Businesses',
-  description: 'Building systems in energy, water, and sales intelligence. Based in Austin, Texas.',
+  description: 'Building systems in energy and water. Based in Austin, Texas.',
   image: 'https://jacquesjean.info/og-image.png',
   url: 'https://jacquesjean.info',
 };
@@ -39,7 +39,7 @@ export function SEO({
     "url": "https://jacquesjean.info",
     "image": defaults.image,
     "jobTitle": "Investor & Entrepreneur",
-    "description": "Building systems in energy, water, and sales intelligence",
+    "description": "Building systems in energy and water",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Austin",
@@ -49,7 +49,7 @@ export function SEO({
     "sameAs": [
       "https://cal.com/jacquesjean"
     ],
-    "knowsAbout": ["energy", "water quality", "sales enablement", "channel sales"]
+    "knowsAbout": ["energy", "water quality"]
   };
 
   return (
@@ -72,7 +72,7 @@ export function SEO({
 
       <meta name="robots" content="index, follow" />
       <meta name="author" content="Jacques Jean" />
-      <meta name="keywords" content="Jacques Jean, energy, water, sales enablement, channel sales, Austin Texas, entrepreneur, investor" />
+      <meta name="keywords" content="Jacques Jean, energy, water quality, Austin Texas, entrepreneur, investor" />
 
       <link rel="canonical" href={seo.url} />
 
