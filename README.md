@@ -31,9 +31,10 @@ npm run preview
 
 ```
 ├── content/posts/        # Markdown blog posts
+├── jesse/                # JESSE vault (tweet voice/tone rules, tweet log)
 ├── public/               # Static assets (images, favicons, OG images)
 │   └── ventures/         # OG images for current ventures
-├── scripts/              # Build scripts (posts processing)
+├── scripts/              # Build and automation scripts
 └── src/
     ├── components/       # Reusable components and styled-components
     │   ├── GlobalStyles.tsx
@@ -62,6 +63,21 @@ Your markdown content here...
 ```
 
 Run `npm run build:posts` to regenerate the posts data.
+
+## Auto-Tweet on Publish
+
+When a new blog post is pushed to `main`, a GitHub Action automatically posts a tweet with the post title, excerpt, and link. The tweet logic lives in `scripts/tweet-on-publish.js` and the voice/tone rules are defined in the JESSE vault at `jesse/`.
+
+### Required GitHub Secrets
+
+| Secret | Description |
+|---|---|
+| `TWITTER_API_KEY` | Twitter/X App Consumer Key |
+| `TWITTER_API_SECRET` | Twitter/X App Consumer Secret |
+| `TWITTER_ACCESS_TOKEN` | User Access Token (read+write) |
+| `TWITTER_ACCESS_SECRET` | User Access Token Secret |
+
+Obtain these from the Twitter/X Developer Portal. The app needs OAuth 1.0a with read+write permissions.
 
 ## Deployment
 
