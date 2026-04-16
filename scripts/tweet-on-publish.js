@@ -16,7 +16,7 @@ if (!filePath) {
 // Parse frontmatter
 const fileContent = fs.readFileSync(filePath, 'utf-8');
 const { data } = matter(fileContent);
-const { title, excerpt, slug } = data;
+const { title, excerpt, slug, tweet: customTweet } = data;
 
 if (!title || !slug) {
   console.error(`Missing required frontmatter (title, slug) in ${filePath}`);
@@ -36,7 +36,16 @@ if (log.some(entry => entry.slug === slug)) {
 // Build tweet text
 const url = `${SITE_URL}/writing/${slug}`;
 
-function buildTweet(title, excerpt, url) {
+function buildTweet(title, excerpt, url, customTweet) {
+  // If a custom tweet hook is provided in frontmatter, use it + the URL
+  if (customTweet) {
+    const custom = `${customTweet}\n\n${url}`;
+    if (custom.length <= MAX_TWEET_LENGTH) return custom;
+    // Custom tweet too long -- truncate
+    const available = MAX_TWEET_LENGTH - url.length - 5; // "\n\n" + "..."
+    return `${customTweet.slice(0, available)}...\n\n${url}`;
+  }
+
   if (excerpt) {
     const full = `${title}\n\n${excerpt}\n\n${url}`;
     if (full.length <= MAX_TWEET_LENGTH) return full;
@@ -57,7 +66,7 @@ function buildTweet(title, excerpt, url) {
   return `${title.slice(0, MAX_TWEET_LENGTH - url.length - 5)}... ${url}`;
 }
 
-const tweetText = buildTweet(title, excerpt, url);
+const tweetText = buildTweet(title, excerpt, url, customTweet);
 
 // Verify Twitter credentials are present
 const { TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET } = process.env;

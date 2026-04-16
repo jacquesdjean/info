@@ -1,0 +1,48 @@
+name: Backfill Tweets
+
+# Manually triggered. Tweets every post in content/posts/ that isn't
+# already in jesse/Projects/drafts/tweet-log.json.
+#
+# Run from the Actions tab -> Backfill Tweets -> Run workflow.
+#
+# This is intended as a one-time backfill for existing posts that
+# predate the auto-tweet workflow. The same dedup log prevents
+# double-posting if you run it more than once.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Tweet all un-tweeted posts
+        env:
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+        run: |
+          for file in content/posts/*.md; do
+            echo "Processing: $file"
+            node scripts/tweet-on-publish.js "$file" || exit 1
+          done
+
+      - name: Commit tweet log
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add jesse/Projects/drafts/tweet-log.json
+          git diff --cached --quiet || git commit -m "chore: backfill tweet log" && git push
