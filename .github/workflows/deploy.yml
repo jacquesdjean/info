@@ -4,6 +4,8 @@ name: Build & Deploy to Firebase
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'jesse/Projects/drafts/**'
   pull_request:
     branches: [main]
   workflow_run:
