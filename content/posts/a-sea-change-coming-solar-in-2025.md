@@ -3,6 +3,7 @@ title: "The Post-Incentive Era of Solar"
 date: "2024-10-15"
 excerpt: "A Market Built on Economics, Ownership, and Real Value"
 slug: "a-sea-change-coming-solar-in-2025"
+tweet: "Solar doesn't need subsidies anymore. The companies that figure that out first will define the next decade of American energy."
 ---
 
 The solar industry is entering a transition year. Many of the incentives and conditions that fueled rapid growth over the past decade are disappearing or shifting, forcing companies to rethink how they operate, what they offer, and how they communicate value.

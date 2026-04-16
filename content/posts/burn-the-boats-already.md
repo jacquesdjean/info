@@ -3,6 +3,7 @@ title: "Burn the Boats"
 date: "2024-11-01"
 excerpt: "On commitment, competition, and why retreat should never be an option."
 slug: "burn-the-boats-already"
+tweet: "Everyone wants the result. Few want the commitment. Even fewer are willing to make retreat impossible."
 ---
 
 If you're starting a business, building a product, or entering a new market, here's the truth: it takes real commitment. Not the curated version of entrepreneurship you see online. The kind that accepts failure as a possibility but refuses retreat as an option.

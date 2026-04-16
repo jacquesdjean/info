@@ -3,6 +3,7 @@ title: "The Startup That Wouldn't Die"
 date: "2024-12-01"
 excerpt: "How years of failure, reinvention, and persistence turned into a water-quality platform with real users."
 slug: "the-startup-that-would-not-die"
+tweet: "Years of dead ends, dissolved partnerships, and pitches that went nowhere. The problem still mattered more than the structure that failed around it."
 ---
 
 Most people only see the headline: "Launching a startup!"

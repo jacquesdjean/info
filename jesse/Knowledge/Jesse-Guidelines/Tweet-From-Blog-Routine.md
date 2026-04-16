@@ -8,6 +8,7 @@ A blog post markdown file with YAML frontmatter containing:
 - `date` -- publication date
 - `excerpt` -- a brief human-written summary
 - `slug` -- URL-friendly identifier
+- `tweet` (optional) -- a custom tweet hook. When present, the script uses this verbatim (+ URL) instead of building a tweet from title/excerpt. Use this to write sharper, hand-crafted hooks that match the voice guidelines.
 
 ## Output
 
