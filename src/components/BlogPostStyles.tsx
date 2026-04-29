@@ -137,6 +137,14 @@ export const ArticleContent = styled.div`
       color: inherit;
     }
   }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 24px 0;
+    display: block;
+  }
 `;
 
 export const AuthorSignature = styled.div`
